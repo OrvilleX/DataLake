@@ -29,6 +29,7 @@ libraryDependencies+= "org.scala-lang.modules" %% "scala-parser-combinators" % "
 libraryDependencies+="org.apache.spark"%%"spark-core"%"2.4.0"%"provided"
 libraryDependencies+="org.apache.spark"%%"spark-sql"%"2.4.0"%"provided"
 libraryDependencies+="org.apache.spark"%%"spark-mllib"%"2.4.0"%"provided"
+libraryDependencies+="io.delta"%%"delta-core"%"0.6.1"
 // Here, `libraryDependencies` is a set of dependencies, and by using `+=`,
 // we're adding the scala-parser-combinators dependency to the set of dependencies
 // that sbt will go and fetch when it starts up.
