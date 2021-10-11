@@ -15,6 +15,7 @@ build/
 target/
 bin/
 tmp/
+spark-warehouse/
 dependency-reduced-pom.xml
 
 # Eclipse Project Files
