@@ -82,15 +82,6 @@ object BatchReadAndWrite {
         // data.write.format("delta").mode("overwrite").save("./tmp/delta-table")
         // data.write.format("delta").mode("overwrite")
         //     .option("replaceWhere", "date >= '2017-01-01' AND date <= '2017-01-31'").save("./tmp/delta-table")
-
-        /**
-          * 基于SQL方式进行删除、更新与合并
-          */
-        spark.sql("CREATE TABLE testtab USING DELTA LOCATION 'G:/github/OrvilleX/datalake/delta/spark-warehouse/testtab'")
-
-        /**
-          * 基于原生API进行删除、更新与何必
-          */
-        
+                
     }
 }
