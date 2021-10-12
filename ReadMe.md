@@ -5,7 +5,7 @@
 
 为能够有效的且针对性的进行学习，我们将三大主流框架分为三个独立的文档进行编写介绍，便于学习。  
 
-* [Delta Lake](Delta/ReadMe.md)  
-* [Hudi](Hudi/ReadMe.md)  
-* [Iceberg](Iceberg/ReadMe.md)  
+* [Delta Lake](./delta/ReadMe.md)  
+* [Hudi](./hudi/ReadMe.md)  
+* [Iceberg](./iceberg/ReadMe.md)  
 
