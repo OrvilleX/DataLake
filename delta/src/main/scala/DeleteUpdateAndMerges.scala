@@ -13,7 +13,7 @@ object  DeleteUpdateAndMerges {
           * 基于SQL方式进行删除、更新与合并
           */
         spark.sql("CREATE TABLE testtab USING DELTA LOCATION 'G:/github/OrvilleX/datalake/delta/spark-warehouse/testtab'")
-        spark.sql("CREATE TABLE updates USING DELTA LOCATION 'G:/github/OrvilleX/datalake/delta/tmp/delta-table'")
+        // spark.sql("CREATE TABLE updates USING DELTA LOCATION 'G:/github/OrvilleX/datalake/delta/tmp/delta-table'")
         // 删除数据
         // spark.sql("DELETE FROM testtab WHERE id < 20")
         // spark.sql("SELECT * FROM testtab").show()
@@ -24,6 +24,9 @@ object  DeleteUpdateAndMerges {
         // 合并插入
         // spark.sql("MERGE INTO testtab USING updates ON testtab.id = updates.id WHEN MATCHED THEN UPDATE SET testtab.name2 = testtab.name WHEN NOT MATCHED THEN INSERT (id, name, name2) VALUES(id, '10', '20')")
         // spark.sql("SELECT * FROM testtab").show()
+        // 查询所有变更记录与最新记录
+        // spark.sql("DESCRIBE HISTORY testtab").show()
+        // spark.sql("DESCRIBE HISTORY testtab LIMIT 1").show()
 
         /**
           * 基于原生API进行删除、更新与合并
@@ -62,5 +65,8 @@ object  DeleteUpdateAndMerges {
           * 只能存在一个`insert`子句用来进行数据插入，当然也可以直接使用`insertAll`进行全插入。这里需要注意的是`whenMatched`与`whenNotMatched`
           * 并不是一定要都出现，可以根据实际需要执行的情况进行调整。
           */
+        // 查询所有变更记录与最新记录
+        // table.history().show()
+        // table.history(1).show()
     }
 }

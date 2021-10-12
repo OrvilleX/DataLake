@@ -237,3 +237,24 @@ table.toDF.show()
 `whenNotMatched`一样可以支持填写具体的条件，组成多个子句来进行匹配。如果不填写条件则当merge不匹配的情况下执行后续的操作，最多  
 只能存在一个`insert`子句用来进行数据插入，当然也可以直接使用`insertAll`进行全插入。这里需要注意的是`whenMatched`与`whenNotMatched`  
 并不是一定要都出现，可以根据实际需要执行的情况进行调整。  
+
+针对列还可以设置列是否可以为NULL以及约束条件，比如在创建表的时候允许可为NULL，稍后在进行移除。  
+
+```sql
+CREATE TABLE events(
+  id LONG NOT NULL,
+  date STRING NOT NULL
+) USING DELTA;
+
+ALTER TABLE events CHANGE COLUMN date DROP NOT NULL;
+```  
+
+以及约束条件，约束字段可输入值的方位，主要用于时间与数字类型的值。  
+
+```sql
+CREATE TABLE events(
+  id LONG NOT NULL,
+  date STRING
+) USING DELTA;
+ALTER TABLE events ADD CONSTRAINT validIds CHECK (id > 1000 and id < 999999);
+```
